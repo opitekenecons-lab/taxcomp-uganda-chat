@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="TaxComp">
+    <meta
+      name="description"
+      content="Opitekene Tax Solutions provides practical Uganda tax consultancy, compliance support, and business-focused tax guidance for individuals and companies."
+    >
+    <meta name="taxcomp-chat-endpoint" content="">
+    <meta property="og:url" content="https://opitekeneconsultancylimited.github.io/Opitekene-Consultancy-Limited/">
+    <title>Opitekene Tax Solutions | Uganda Tax Consultancy</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="./icons/taxcomp-192.png">
+    <link rel="apple-touch-icon" href="./icons/taxcomp-180.png">
+    <link rel="stylesheet" href="styles.css?v=tax-chat-calculator-links-1">
+    <script src="tax-advisory.js?v=20261101-shared-tax-knowledge-1" defer></script>
+    <script src="tax-calculator.js?v=20261101-shared-tax-knowledge-1" defer></script>
+    <script src="app.js?v=direct-worked-example-links-1" defer></script>
+    <script src="tax-chat.js?v=tax-chat-calculator-links-1" defer></script>
+    <script src="international-tax.js?v=international-tax-1" defer></script>
+    <script src="audit-health.js?v=audit-health-1" defer></script>
+    <script src="app-install.js?v=pwa-1" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Opitekene Tax Solutions home">
+        <span class="brand-mark" aria-hidden="true">O</span>
+        <span>Opitekene <span class="brand-country">Tax Solutions</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#estimator">Services</a>
+        <a href="#international-tax">Advisory</a>
+        <a href="#audit-health">Compliance</a>
+        <a href="#payments">Contact</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+      <a class="header-link" href="#contact">
+        Book a consultation
+        <span aria-hidden="true">↗</span>
+      </a>
+      <button class="header-link install-app-button" id="install-app" type="button" hidden>Install app</button>
+    </header>
+    <p class="install-app-help" id="install-help" role="status" hidden></p>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> UGANDA TAX CONSULTANCY</p>
+          <h1 id="page-title">Clear tax advice<br>for <span>businesses and individuals</span></h1>
+          <p class="hero-description">
+            We help clients manage tax obligations, improve compliance, and make practical decisions with confidence.
+            From PAYE and VAT to business tax planning, we make tax easier to understand.
+          </p>
+          <div class="trust-note">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M10 2.5 3.75 5v4.2c0 3.7 2.65 7.15 6.25 8.3 3.6-1.15 6.25-4.6 6.25-8.3V5L10 2.5Z"></path>
+              <path d="m7.2 9.9 1.8 1.8 3.8-4"></path>
+            </svg>
+            Calculator figures stay in this browser. If AI chat is connected, messages are sent to Gemini through Cloudflare; don't share confidential details.
+          </div>
+          <div class="hero-cta-stack" aria-label="Contact options">
+            <a class="hero-contact-button primary" href="tel:+256782092825">Call now</a>
+            <a class="hero-contact-button whatsapp" href="https://wa.me/256782092825?text=Hello%20Opitekene%20Tax%20Solutions%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="art-card">
+            <span class="art-card-label">YOUR ESTIMATE</span>
+            <span class="art-card-amount">UGX <strong>—</strong></span>
+            <span class="art-card-rule"></span>
+            <span class="art-card-caption">A little more clarity goes a long way.</span>
+          </div>
+          <span class="art-spark spark-one">✳</span>
+          <span class="art-spark spark-two">✳</span>
+        </div>
+      </section>
+
+      <section class="estimator-section" id="estimator" aria-labelledby="estimator-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">TAX CALCULATORS</p>
+            <h2 id="estimator-title">Choose a tax head.</h2>
+          </div>
+          <span class="year-badge">Uganda · FY 2026/27</span>
+        </div>
+
+        <div class="tax-tabs" role="tablist" aria-label="Choose a tax head">
+          <button class="tax-tab is-active" id="tab-individual" type="button" role="tab" aria-selected="true" aria-controls="tax-form" data-tax-head="individual">Individual income</button>
+          <button class="tax-tab" id="tab-paye" type="button" role="tab" aria-selected="false" aria-controls="tax-form" data-tax-head="paye" tabindex="-1">PAYE</button>
+          <button class="tax-tab" id="tab-company" type="button" role="tab" aria-selected="false" aria-controls="tax-form" data-tax-head="company" tabindex="-1">Company income</button>
+          <button class="tax-tab" id="tab-vat" type="button" role="tab" aria-selected="false" aria-controls="tax-form" data-tax-head="vat" tabindex="-1">VAT</button>
+          <button class="tax-tab" id="tab-rental" type="button" role="tab" aria-selected="false" aria-controls="tax-form" data-tax-head="rental" tabindex="-1">Rental income</button>
+          <button class="tax-tab" id="tab-withholding" type="button" role="tab" aria-selected="false" aria-controls="tax-form" data-tax-head="withholding" tabindex="-1">Withholding tax</button>
+          <button class="tax-tab" id="tab-presumptive" type="button" role="tab" aria-selected="false" aria-controls="tax-form" data-tax-head="presumptive" tabindex="-1">Presumptive tax</button>
+          <button class="tax-tab" id="tab-customs" type="button" role="tab" aria-selected="false" aria-controls="tax-form" data-tax-head="customs" tabindex="-1">Imports &amp; exports</button>
+          <button class="tax-tab" id="tab-capital-allowances" type="button" role="tab" aria-selected="false" aria-controls="tax-form" data-tax-head="capital-allowances" tabindex="-1">Wear &amp; tear</button>
+        </div>
+
+        <div class="estimator-grid">
+          <form class="calculator-card" id="tax-form" role="tabpanel" aria-labelledby="tab-individual" tabindex="0">
+            <div class="card-heading">
+              <span class="step-number">01</span>
+              <div>
+                <h3 id="form-title">Your income</h3>
+                <p id="form-description">Estimate tax on your annual taxable income.</p>
+              </div>
+            </div>
+
+            <div class="tax-fields" data-fields="individual">
+              <div class="field">
+                <label for="individual-residency">Tax residency</label>
+                <select id="individual-residency">
+                  <option value="resident">Resident individual</option>
+                  <option value="nonresident">Non-resident individual</option>
+                </select>
+                <p class="field-help">Non-residents have different individual income tax bands.</p>
+              </div>
+              <div class="field">
+                <label for="assessable-income">Annual assessable income before deductions</label>
+                <div class="input-wrap">
+                  <span class="currency-prefix" aria-hidden="true">UGX</span>
+                  <input id="assessable-income" name="assessable-income" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 48000000" data-required="true">
+                </div>
+                <p class="field-help">Combine your taxable income sources for the year. Exclude income you have confirmed is exempt.</p>
+              </div>
+              <div class="field">
+                <label for="individual-deductions">Allowable deductions <span>(optional)</span></label>
+                <div class="input-wrap">
+                  <span class="currency-prefix" aria-hidden="true">UGX</span>
+                  <input id="individual-deductions" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 2000000">
+                </div>
+                <p class="field-help">Enter only deductions you have confirmed are allowable for this income and year. The estimator does not determine eligibility.</p>
+              </div>
+              <div class="field">
+                <label for="tax-paid">Income tax already paid <span>(optional)</span></label>
+                <div class="input-wrap">
+                  <span class="currency-prefix" aria-hidden="true">UGX</span>
+                  <input id="tax-paid" name="tax-paid" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 2400000">
+                </div>
+                <p class="field-help">Include provisional tax paid during the year.</p>
+              </div>
+            </div>
+
+            <div class="tax-fields" data-fields="paye" hidden>
+              <div class="field">
+                <label for="paye-residency">Tax residency</label>
+                <select id="paye-residency" disabled>
+                  <option value="resident">Resident employee</option>
+                  <option value="nonresident">Non-resident employee</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="monthly-salary">Monthly basic cash salary before PAYE</label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="monthly-salary" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 5000000" data-required="true" disabled></div>
+                <p class="field-help">Enter basic salary only. Add other taxable pay and benefits in the itemized schedule below.</p>
+              </div>
+              <details class="adjustment-details">
+                <summary>Itemize taxable pay and benefits</summary>
+                <p class="field-help">
+                  Enter the monthly taxable amount you have determined for each item. Benefit valuation,
+                  exemptions and treatment of one-off payments are not calculated here. Do not enter a
+                  benefit twice.
+                </p>
+                <div class="adjustment-grid" id="paye-taxable-items"></div>
+                <p class="adjustment-guidance">
+                  Possible exclusions depend on statutory conditions. Examples to assess separately include
+                  qualifying passage costs, medical reimbursements, certain employer-paid life premiums,
+                  per diem, meals available to all full-time employees, small gifts, employer retirement
+                  contributions, share options at grant, qualifying pension payments and security-guard
+                  services. Confirm the current law before excluding an amount.
+                </p>
+              </details>
+              <div class="field">
+                <label for="monthly-gross-earnings">Monthly gross earnings for NSSF <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="monthly-gross-earnings" type="number" min="0" step="1" inputmode="numeric" placeholder="Defaults to taxable pay" disabled></div>
+                <p class="field-help">NSSF is calculated separately from PAYE. If omitted, taxable pay is used as a rough earnings proxy.</p>
+              </div>
+            </div>
+
+            <div class="tax-fields" data-fields="company" hidden>
+              <div class="field">
+                <label for="company-profit">Annual accounting profit before tax</label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="company-profit" type="number" step="1" inputmode="numeric" placeholder="Enter profit or loss from accounts" data-required="true" disabled></div>
+                <p class="field-help">Start with profit or loss from your accounts, not turnover.</p>
+              </div>
+              <div class="field">
+                <label for="company-addbacks">Other disallowable expenses or taxable adjustments <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="company-addbacks" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 5000000" disabled></div>
+                <p class="field-help">Use for confirmed adjustments not already itemized below.</p>
+              </div>
+              <details class="adjustment-details">
+                <summary>Itemize additions to accounting profit</summary>
+                <p class="field-help">Enter only the amount not already reflected in profit and confirmed as a tax adjustment for this taxpayer and year.</p>
+                <div class="adjustment-grid" id="company-addback-items"></div>
+              </details>
+              <div class="field">
+                <label for="company-exempt-income">Exempt income included in accounting profit <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="company-exempt-income" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter confirmed exempt income" disabled></div>
+              </div>
+              <div class="field">
+                <label for="company-capital-allowances">Capital allowances for the year <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="company-capital-allowances" type="number" min="0" step="1" inputmode="numeric" placeholder="From your tax depreciation schedule" disabled></div>
+                <p class="field-help">Enter the allowable amount from your asset-by-asset tax schedule, not book depreciation. Eligibility, asset class and rate are not determined here.</p>
+              </div>
+              <div class="field">
+                <label for="company-tax-losses">Carried-forward tax losses used <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="company-tax-losses" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter eligible amount used this year" disabled></div>
+                <p class="field-help">Use only losses verified as available and allowable for this taxpayer and year.</p>
+              </div>
+              <div class="field">
+                <label for="company-deductions">Other allowable tax deductions <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="company-deductions" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 2000000" disabled></div>
+                <p class="field-help">Use for confirmed deductions not already itemized below or reflected in the accounts.</p>
+              </div>
+              <details class="adjustment-details">
+                <summary>Itemize other allowable deductions</summary>
+                <p class="field-help">Enter only amounts confirmed deductible and not already included in accounting profit or another field.</p>
+                <div class="adjustment-grid" id="company-deduction-items"></div>
+              </details>
+              <div class="field">
+                <label for="company-paid">Provisional tax instalments paid <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="company-paid" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 10000000" disabled></div>
+              </div>
+              <div class="field">
+                <label for="company-wht-credits">Creditable withholding tax paid on the company’s income <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="company-wht-credits" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter verified, creditable WHT only" disabled></div>
+                <p class="field-help">Exclude final withholding taxes and amounts not supported by valid certificates or records.</p>
+              </div>
+            </div>
+
+            <div class="tax-fields" data-fields="vat" hidden>
+              <div class="field">
+                <label for="vat-sales">Standard-rated sales for the period</label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="vat-sales" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 10000000" data-required="true" disabled></div>
+              </div>
+              <div class="field">
+                <label for="vat-price-mode">Sales amount includes VAT?</label>
+                <select id="vat-price-mode" disabled>
+                  <option value="exclusive">No — VAT-exclusive price</option>
+                  <option value="inclusive">Yes — VAT-inclusive price</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="vat-zero-sales">Zero-rated sales <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="vat-zero-sales" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 2000000" disabled></div>
+              </div>
+              <div class="field">
+                <label for="vat-exempt-sales">Exempt sales <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="vat-exempt-sales" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 2000000" disabled></div>
+              </div>
+              <div class="field">
+                <label for="vat-input">Claimable input VAT <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="vat-input" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 900000" disabled></div>
+                <p class="field-help">Enter VAT on eligible business purchases, not the purchase value. Claims need valid e-invoices/e-receipts and generally must be made within six months.</p>
+              </div>
+              <div class="field">
+                <label for="vat-annual-turnover">Taxable supplies in the last 12 months <span>(optional, for registration check)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="vat-annual-turnover" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter rolling 12-month taxable supplies" disabled></div>
+              </div>
+              <div class="field">
+                <label for="vat-three-month-turnover">Taxable supplies in any three-month period <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="vat-three-month-turnover" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter highest relevant three-month period" disabled></div>
+              </div>
+              <div class="field">
+                <label class="checkbox-label" for="vat-remote-services"><input id="vat-remote-services" type="checkbox" disabled> I supply remote electronic services to Ugandan consumers</label>
+                <p class="field-help">Special VAT registration rules may apply regardless of the standard turnover thresholds.</p>
+              </div>
+              <p class="field-help vat-threshold-note">From 1 July 2026, standard VAT registration thresholds are UGX 300,000,000 annually or taxable supplies exceeding UGX 75,000,000 in a three-month period.</p>
+            </div>
+
+            <div class="tax-fields" data-fields="rental" hidden>
+              <div class="field">
+                <label for="rental-taxpayer-type">Landlord type</label>
+                <select id="rental-taxpayer-type">
+                  <option value="individual">Individual landlord</option>
+                  <option value="company">Company landlord</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="rental-residency">Landlord tax residence</label>
+                <select id="rental-residency">
+                  <option value="resident">Resident in Uganda</option>
+                  <option value="nonresident">Non-resident</option>
+                </select>
+                <p class="field-help">For non-residents, the estimate applies the standard domestic withholding rate on Uganda-source gross rent, not the resident rental-tax computation. Treaty relief may apply.</p>
+              </div>
+              <div class="field">
+                <label for="rental-income">Annual gross rental income</label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="rental-income" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 24000000" data-required="true" disabled></div>
+                <p class="field-help">Enter gross rent from Uganda property before expenses and tax withheld.</p>
+              </div>
+              <div class="rental-mode-fields" data-rental-mode="resident-company" hidden>
+                <div class="field">
+                  <label for="rental-expenses">Allowable rental expenses <span>(optional)</span></label>
+                  <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="rental-expenses" type="number" min="0" step="1" inputmode="numeric" placeholder="Only expenses confirmed deductible"></div>
+                  <p class="field-help">Enter only expenses confirmed deductible for this company and year; do not deduct expenses already included in another tax computation.</p>
+                </div>
+                <div class="field">
+                  <label for="rental-losses">Eligible carried-forward rental tax losses used <span>(optional)</span></label>
+                  <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="rental-losses" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter confirmed eligible loss"></div>
+                </div>
+                <div class="field">
+                  <label for="rental-wht-credits">Creditable withholding tax received <span>(optional)</span></label>
+                  <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="rental-wht-credits" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter verified creditable WHT"></div>
+                  <p class="field-help">Enter only withholding confirmed creditable to the resident company and supported by records.</p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="rental-paid">Rental tax or withholding already paid <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="rental-paid" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter tax or withholding already paid" disabled></div>
+                <p class="field-help">For non-resident landlords, enter tax withheld from rent. For resident landlords, enter applicable tax payments only.</p>
+              </div>
+            </div>
+
+            <div class="tax-fields" data-fields="withholding" hidden>
+              <div class="field">
+                <label for="wht-type">Payment category</label>
+                <select id="wht-type" disabled>
+                  <option value="resident-supply">Resident supply / contract payment (6%)</option>
+                  <option value="resident-dividend">Resident dividend (15%)</option>
+                  <option value="listed-dividend">Dividend to individual from listed company (10%)</option>
+                  <option value="resident-interest">Resident interest (15%)</option>
+                  <option value="government-interest">Government securities interest, under 10 years (20%)</option>
+                  <option value="long-government-interest">Government securities interest, 10 years or more (10%)</option>
+                  <option value="related-company-dividend">Dividend to resident company holding at least 25% voting power (0%)</option>
+                  <option value="nonresident-payment">Non-resident dividend, interest, royalty, rent or management fee (15%)</option>
+                  <option value="nonresident-government-interest">Non-resident government securities interest, under 10 years (20%)</option>
+                  <option value="nonresident-long-government-interest">Non-resident government securities interest, 10 years or more (10%)</option>
+                  <option value="imported-goods">Import of goods withholding tax (6%)</option>
+                  <option value="nonresident-reinsurance">Non-resident reinsurance premium (10%)</option>
+                  <option value="nonresident-transport">Non-resident air, sea or road transport operator (2%)</option>
+                  <option value="nonresident-telecom">Non-resident telecommunications or direct-to-home TV income (5%)</option>
+                  <option value="resident-entertainer">Resident public entertainer (6%; any payer, from 1 July 2026)</option>
+                  <option value="betting-winnings">Betting or gaming winnings (15% of payout less stake; from 1 July 2026)</option>
+                  <option value="resident-telecom-commission">Telecom, mobile-network or mobile-money commissions (10%; from 1 July 2026)</option>
+                  <option value="payment-service-commission">Payment service provider commission (10%)</option>
+                  <option value="insurance-agent-commission">Insurance agent commission (10%; final tax from 1 July 2026)</option>
+                  <option value="advertising-agent-commission">Advertising agent commission (10%)</option>
+                  <option value="mobile-money-commission">Airtime distribution commission (10%)</option>
+                  <option value="vat-withholding">VAT withholding (6%; supplier did not issue EFRIS invoice)</option>
+                  <option value="nonresident-debenture-interest">Qualifying non-resident offshore debenture interest (5%; special conditions)</option>
+                </select>
+                  <p class="field-help">Treaties, exemptions, payer status, final-tax treatment and special eligibility conditions can change the applicable rate.</p>
+                </div>
+                <div class="field" id="designated-payer-field">
+                  <label class="checkbox-label" for="designated-payer"><input id="designated-payer" type="checkbox" disabled> I am a designated withholding agent</label>
+                </div>
+                <div class="field" id="supplier-invoice-field" hidden>
+                  <label class="checkbox-label" for="supplier-issued-invoice"><input id="supplier-issued-invoice" type="checkbox" disabled> Supplier issued an EFRIS e-invoice or e-receipt</label>
+                </div>
+              <div class="field">
+                <label id="wht-gross-label" for="wht-gross">Gross payment</label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="wht-gross" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 5000000" data-required="true" disabled></div>
+                <p class="field-help" id="wht-gross-help">For resident supply payments, withholding generally applies to designated agents on payments exceeding UGX 1,000,000.</p>
+              </div>
+              <div class="field" id="betting-stake-field" hidden>
+                <label for="betting-stake">Stake amount</label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="betting-stake" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 10000" data-required="true" data-required-for="betting-winnings" disabled></div>
+                <p class="field-help">The withholding base is winnings: payout less the stake amount.</p>
+              </div>
+              <div class="field" id="national-lottery-field" hidden>
+                <label class="checkbox-label" for="national-lottery-winnings"><input id="national-lottery-winnings" type="checkbox" disabled> Winnings paid by a person licensed to conduct a national lottery</label>
+              </div>
+            </div>
+
+            <div class="tax-fields" data-fields="presumptive" hidden>
+              <div class="field">
+                <label for="presumptive-turnover">Annual business turnover</label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="presumptive-turnover" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 40000000" data-required="true" disabled></div>
+              </div>
+              <div class="field">
+                <label for="presumptive-rate">Applicable presumptive rate <span>(confirm for your business)</span></label>
+                <div class="input-wrap"><input id="presumptive-rate" type="number" min="0" max="100" step="0.01" inputmode="decimal" placeholder="Enter rate %" data-required="true" disabled><span class="currency-prefix" aria-hidden="true">%</span></div>
+                <p class="field-help">Presumptive tax depends on eligibility, business activity, location and record-keeping. This estimator applies the rate you enter; it does not determine your statutory schedule.</p>
+              </div>
+            </div>
+
+            <div class="tax-fields" data-fields="customs" hidden>
+              <div class="field">
+                <label for="customs-direction">Trade direction</label>
+                <select id="customs-direction">
+                  <option value="import">Importing goods into Uganda</option>
+                  <option value="export">Exporting goods from Uganda</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="customs-goods">Goods description <span>(optional)</span></label>
+                <input class="text-input" id="customs-goods" type="text" maxlength="120" placeholder="e.g. packaged coffee">
+              </div>
+              <div class="field">
+                <label for="customs-hs-code">HS / tariff code <span>(optional)</span></label>
+                <input class="text-input" id="customs-hs-code" type="text" maxlength="20" placeholder="Enter the code from your customs documents">
+                <p class="field-help">Rates depend on correct classification and origin. This estimator does not look up or classify tariff codes.</p>
+              </div>
+
+              <div class="customs-mode-fields" data-customs-mode="import">
+                <div class="field">
+                  <label for="import-origin">Country of origin <span>(optional)</span></label>
+                  <input class="text-input" id="import-origin" type="text" maxlength="80" placeholder="Country where goods originate">
+                </div>
+                <div class="field">
+                  <label for="import-customs-value">Customs value (UGX)</label>
+                  <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="import-customs-value" type="number" min="0" step="1" inputmode="numeric" placeholder="Use value from customs assessment" data-required="true"></div>
+                  <p class="field-help">Use the customs-assessed value, including any valuation adjustments required for your shipment.</p>
+                </div>
+                <div class="field">
+                  <label for="import-duty-rate">Customs duty rate (%)</label>
+                  <div class="input-wrap"><input id="import-duty-rate" type="number" min="0" max="100" step="0.01" inputmode="decimal" placeholder="Confirm for HS code and origin" data-required="true"><span class="currency-prefix" aria-hidden="true">%</span></div>
+                  <p class="field-help">Confirm the rate for the exact HS code and country of origin with <a href="https://singlewindow.go.ug/stp/#/" target="_blank" rel="noopener noreferrer">URA’s Electronic Single Window</a> or a licensed customs agent.</p>
+                </div>
+                <div class="field">
+                  <label for="import-excise-duty">Excise duty from tariff / assessment <span>(optional)</span></label>
+                  <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="import-excise-duty" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter total assessed excise duty"></div>
+                  <p class="field-help">Excise may use product-specific or per-unit rates; enter the amount calculated from the applicable schedule.</p>
+                </div>
+                <div class="field">
+                  <label for="import-vat-treatment">Import VAT treatment</label>
+                  <select id="import-vat-treatment">
+                    <option value="standard">Standard-rated (18%)</option>
+                    <option value="zero-rated">Zero-rated (only if confirmed eligible)</option>
+                    <option value="exempt">Exempt (only if confirmed eligible)</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="import-withholding-rate">Import withholding-tax rate (%) <span>(optional)</span></label>
+                  <div class="input-wrap"><input id="import-withholding-rate" type="number" min="0" max="100" step="0.01" inputmode="decimal" placeholder="Enter applicable rate, or leave blank"><span class="currency-prefix" aria-hidden="true">%</span></div>
+                  <p class="field-help">Use only if withholding applies to your import; exemptions and the statutory tax base must be checked.</p>
+                </div>
+                <div class="field">
+                  <label for="import-other-charges">Other assessed import charges <span>(optional)</span></label>
+                  <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="import-other-charges" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter total amount from assessment"></div>
+                  <p class="field-help">Enter other applicable levies or fees from your customs assessment; do not duplicate duty, excise, VAT or withholding above.</p>
+                </div>
+              </div>
+
+              <div class="customs-mode-fields" data-customs-mode="export" hidden>
+                <div class="field">
+                  <label for="export-customs-value">Export / sale value (UGX)</label>
+                  <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="export-customs-value" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 10000000" data-required="true"></div>
+                </div>
+                <div class="field">
+                  <label for="export-vat-treatment">Export VAT treatment</label>
+                  <select id="export-vat-treatment">
+                    <option value="zero-rated">Zero-rated export (confirm eligibility and evidence)</option>
+                    <option value="standard">Standard-rated (18%)</option>
+                    <option value="exempt">Exempt (only if confirmed eligible)</option>
+                  </select>
+                  <p class="field-help">Export zero-rating requires the transaction to qualify and supporting evidence.</p>
+                </div>
+                <div class="field">
+                  <label for="export-levy-rate">Export duty / levy rate (%) <span>(optional)</span></label>
+                  <div class="input-wrap"><input id="export-levy-rate" type="number" min="0" max="100" step="0.01" inputmode="decimal" placeholder="Enter applicable tariff rate, or leave blank"><span class="currency-prefix" aria-hidden="true">%</span></div>
+                  <p class="field-help">Only enter a rate confirmed for your product and destination; export levies apply to specific goods.</p>
+                </div>
+                <div class="field">
+                  <label for="export-excise-duty">Export excise duty / levy amount <span>(optional)</span></label>
+                  <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="export-excise-duty" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter assessed amount if applicable"></div>
+                </div>
+                <div class="field">
+                  <label for="export-other-charges">Other assessed export charges <span>(optional)</span></label>
+                  <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="export-other-charges" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter assessed amount"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tax-fields" data-fields="capital-allowances" hidden>
+              <div class="field">
+                <label for="allowance-class">Wear-and-tear class</label>
+                <select id="allowance-class" data-required="true">
+                  <option value="">Choose the asset class</option>
+                </select>
+                <p class="field-help">Class 1 — 40%: computers and data-handling equipment.</p>
+                <p class="field-help">Class 2 — 30%: plant and machinery used in farming, manufacturing or mining.</p>
+                <p class="field-help">Class 3 — 20%: automobiles; buses/minibuses; construction and earth-moving equipment; specialised trucks, tractors, trailers and trailer-mounted containers; rail cars, locomotives and equipment; vessels, barges, tugs and similar water-transport equipment; aircraft; specialised public-utility plant/equipment/machinery; office furniture, fixtures and equipment; and other depreciable assets not in Classes 1 or 2.</p>
+              </div>
+              <div class="field">
+                <label for="allowance-opening-value">Opening tax written-down value (UGX)</label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="allowance-opening-value" type="number" min="0" step="1" inputmode="numeric" placeholder="Enter prior-year closing pool value" data-required="true"></div>
+                <p class="field-help">For a new class pool, enter 0. Otherwise enter the previous year’s closing tax pool balance, already adjusted for business use.</p>
+              </div>
+              <div class="field">
+                <label for="allowance-additions">Qualifying additions in the year (UGX) <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="allowance-additions" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></div>
+                <p class="field-help">Enter qualifying capital cost, excluding recoverable VAT and costs that are not part of the asset’s tax basis.</p>
+              </div>
+              <div class="field">
+                <label for="allowance-disposals">Disposal proceeds for this class pool (UGX) <span>(optional)</span></label>
+                <div class="input-wrap"><span class="currency-prefix" aria-hidden="true">UGX</span><input id="allowance-disposals" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></div>
+                <p class="field-help">Enter proceeds attributable to assets in this class. Any proceeds exceeding the pool balance are flagged for a separate balancing-adjustment review.</p>
+              </div>
+              <div class="field">
+                <label for="allowance-business-use">Business-use percentage</label>
+                <div class="input-wrap"><input id="allowance-business-use" type="number" min="0" max="100" step="0.01" inputmode="decimal" placeholder="e.g. 100" data-required="true"><span class="currency-prefix" aria-hidden="true">%</span></div>
+                <p class="field-help">Applied to current-year additions and disposal proceeds. Use the already apportioned amount for the opening pool value.</p>
+              </div>
+              <p class="field-help">Wear-and-tear uses reducing-balance rates by statutory class. This schedule is separate from the 5% straight-line industrial building allowance. <a href="https://taxsummaries.pwc.com/uganda/corporate/deductions" target="_blank" rel="noopener noreferrer">Read the Uganda depreciation summary</a> and confirm the current law and asset eligibility.</p>
+            </div>
+
+            <button class="calculate-button" type="submit">
+              <span id="calculate-label">Calculate my estimate</span>
+              <span aria-hidden="true">→</span>
+            </button>
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <p class="form-note">A planning estimate under standard FY 2026/27 rules, not an official tax assessment.</p>
+          </form>
+
+          <section class="results-card" aria-labelledby="results-title" aria-live="polite">
+            <div class="results-topline">
+              <div>
+                <p class="eyebrow result-eyebrow">YOUR RESULTS</p>
+                <h3 id="results-title">Your estimate</h3>
+              </div>
+              <span class="result-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 19.5h14M7.5 16V10m4.5 6V5m4.5 11v-3"></path>
+                </svg>
+              </span>
+            </div>
+            <div id="empty-results" class="empty-results">
+              <span class="empty-symbol" aria-hidden="true">↗</span>
+              <p>Your tax estimate will appear here.</p>
+              <span>Choose a tax head and enter the requested figures.</span>
+            </div>
+            <div id="calculated-results" class="calculated-results" hidden>
+              <div class="primary-result">
+                <span id="result-label">Estimated tax</span>
+                <strong id="estimated-tax">UGX 0</strong>
+                <span id="effective-rate" class="effective-rate"></span>
+              </div>
+              <div class="balance-row" id="balance-row">
+                <span id="balance-label">Estimated balance to pay</span>
+                <strong id="balance-amount">UGX 0</strong>
+              </div>
+              <div class="breakdown-heading">
+                <span id="breakdown-title">How the estimate adds up</span>
+                <span id="breakdown-subtitle">Calculation details</span>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col" id="column-label">Description</th>
+                      <th scope="col" id="column-rate">Rate</th>
+                      <th scope="col" id="column-tax">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody id="result-breakdown"></tbody>
+                </table>
+              </div>
+              <p id="calculation-note" class="calculation-note"></p>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="international-tax-section" id="international-tax" aria-labelledby="international-tax-title">
+        <div class="advisory-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">CROSS-BORDER TAX</p>
+            <h2 id="international-tax-title">International tax, from a Uganda perspective.</h2>
+            <p>Explore the cross-border issues that can affect people and businesses operating in or with Uganda.</p>
+          </div>
+        </div>
+        <div class="advisory-caveat" role="note">
+          International tax depends on the countries involved, the tax year, the contract and the facts. This guide is not a worldwide rate database and does not determine residence, treaty entitlement, permanent establishment, transfer-pricing compliance or filing obligations. Confirm current rules in every relevant country before acting.
+        </div>
+
+        <div class="international-tax-topics">
+          <article><span>01</span><h3>Residence and source</h3><p>Identify where a person or company is tax-resident, where income arises, and which countries may tax it. Citizenship, incorporation and payment location are not always decisive on their own.</p></article>
+          <article><span>02</span><h3>Tax treaties and double taxation</h3><p>Check whether an effective agreement applies to both parties and the income type, then review residence, beneficial ownership, anti-abuse and documentation requirements before seeking relief.</p></article>
+          <article><span>03</span><h3>Cross-border withholding</h3><p>Review dividends, interest, royalties, rent, services, management fees, transport, insurance and other payments to non-residents. Determine the tax base, rate, timing, reporting and whether withholding is creditable or final.</p></article>
+          <article><span>04</span><h3>Permanent establishment</h3><p>Assess fixed places of business, projects, dependent agents, service activity and other local presence under domestic law and any applicable treaty. A PE may change profit attribution, registration and return obligations.</p></article>
+          <article><span>05</span><h3>Transfer pricing and related parties</h3><p>Identify associated-party transactions, test arm’s-length pricing, keep contemporaneous evidence, and assess local documentation, disclosure, financing and adjustment rules.</p></article>
+          <article><span>06</span><h3>Foreign income and double-tax relief</h3><p>Review foreign-source income, tax paid abroad, available credit or exemption mechanisms, limits, proof and timing. Relief is not automatic and may be restricted by income category or law.</p></article>
+          <article><span>07</span><h3>Cross-border employees</h3><p>Consider work location and days, employer and economic-employer facts, payroll withholding, benefits, social security, immigration status, remote work and any treaty employment conditions.</p></article>
+          <article><span>08</span><h3>VAT and digital services</h3><p>Check imported services, reverse-charge VAT, non-resident digital supplies, e-commerce platforms, place-of-supply rules, registration, invoicing and recoverability in each country.</p></article>
+          <article><span>09</span><h3>Customs and regional trade</h3><p>Confirm HS classification, customs value, origin, EAC or other preferential rules, proof of origin, import VAT, excise, export controls and the destination country’s import obligations.</p></article>
+          <article><span>10</span><h3>Groups, anti-avoidance and BEPS</h3><p>Review controlled-foreign-company rules, interest limitations, hybrid arrangements, treaty abuse, country-by-country reporting and global minimum-tax rules where the group and jurisdiction are in scope.</p></article>
+          <article><span>11</span><h3>Foreign exchange and payments</h3><p>Track currency conversion, timing, withholding certificates, tax gross-ups, foreign-exchange gains or losses, bank evidence and payment/reporting rules for cross-border transactions.</p></article>
+          <article><span>12</span><h3>Disclosure, audits and disputes</h3><p>Keep contracts, invoices, travel/workday records, residency certificates, proof of tax paid, customs records and related-party support. Check deadlines, exchange-of-information exposure, objection routes and treaty mutual-agreement procedures.</p></article>
+        </div>
+
+        <div class="international-tax-calculator">
+          <div>
+            <p class="eyebrow section-eyebrow">QUICK ESTIMATE</p>
+            <h3>Cross-border tax workbench.</h3>
+            <p>Choose an arithmetic scenario. Every rate, cap, reference price, workday count and allocation must be verified for the relevant countries and tax period.</p>
+          </div>
+          <form id="international-tax-form">
+            <div class="field">
+              <label for="international-tax-method">Choose a calculation</label>
+              <select id="international-tax-method">
+                <option value="withholding">Cross-border withholding comparison</option>
+                <option value="foreignCredit">Foreign tax credit ceiling scenario</option>
+                <option value="currency">Foreign-currency conversion</option>
+                <option value="transferPricing">Related-party price comparison</option>
+                <option value="workdays">Cross-border employment workday allocation</option>
+                <option value="importedServicesVat">Imported-service VAT scenario</option>
+                <option value="profitAttribution">Permanent-establishment profit allocation</option>
+              </select>
+            </div>
+            <h3 id="international-tax-workbench-title"></h3>
+            <p id="international-tax-method-description" class="international-tax-method-description"></p>
+            <div id="international-tax-fields" class="international-tax-fields"></div>
+            <button type="submit">Calculate scenario</button>
+            <p id="international-tax-error" class="form-error" role="alert" hidden></p>
+          </form>
+          <div id="international-tax-result" class="international-tax-result" aria-live="polite" hidden></div>
+        </div>
+        <p class="international-tax-sources">
+          Reference portals:
+          <a href="https://www.ura.go.ug/" target="_blank" rel="noopener noreferrer">URA</a> ·
+          <a href="https://www.eac.int/documents/category/eac-common-external-tariff" target="_blank" rel="noopener noreferrer">EAC Common External Tariff</a> ·
+          <a href="https://www.oecd.org/tax/transfer-pricing/oecd-transfer-pricing-guidelines-for-multinational-enterprises-and-tax-administrations-20769717.htm" target="_blank" rel="noopener noreferrer">OECD Transfer Pricing Guidelines</a> ·
+          <a href="https://www.oecd.org/tax/beps/" target="_blank" rel="noopener noreferrer">OECD BEPS</a> ·
+          <a href="https://taxsummaries.pwc.com/uganda/corporate/withholding-taxes" target="_blank" rel="noopener noreferrer">Uganda withholding tax overview (secondary)</a>
+        </p>
+      </section>
+
+      <section class="audit-health-section" id="audit-health" aria-labelledby="audit-health-title">
+        <div class="advisory-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">BUSINESS TAX CONTROLS</p>
+            <h2 id="audit-health-title">Prepare for a tax audit. Check your tax health.</h2>
+            <p>Work through practical records and control prompts, then focus on the follow-ups that need attention.</p>
+          </div>
+        </div>
+
+        <div class="audit-health-caveat" role="note">
+          This educational checklist is not a tax filing, audit opinion, compliance certificate or legal advice. Tax obligations and deadlines depend on the facts and current law. Verify a URA notice and its deadlines directly with URA or a qualified adviser.
+        </div>
+
+        <div class="audit-health-privacy" role="note">
+          Your checklist statuses and optional period are saved in this browser on this device only. No accounting records, company name or answers are uploaded. Avoid entering confidential details; use clear progress to remove saved answers from this browser.
+        </div>
+
+        <div class="audit-health-workspace">
+          <div class="audit-health-controls">
+            <div class="field">
+              <label for="audit-health-mode">Choose a workspace</label>
+              <select id="audit-health-mode">
+                <option value="audit">Audit readiness</option>
+                <option value="health">Tax health check</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="audit-health-period">Tax period (optional)</label>
+              <input class="text-input" id="audit-health-period" type="text" maxlength="80" placeholder="e.g. FY 2025/26" autocomplete="off">
+            </div>
+            <div class="audit-health-buttons">
+              <button id="audit-health-download" type="button">Download report</button>
+              <button id="audit-health-print" type="button">Print report</button>
+              <button id="audit-health-reset" class="audit-health-reset" type="button">Clear progress</button>
+            </div>
+          </div>
+
+          <p id="audit-health-mode-description" class="audit-health-mode-description"></p>
+          <p id="audit-health-save-status" class="audit-health-save-status" role="status"></p>
+          <p id="audit-health-notice" class="audit-health-notice" role="alert" hidden></p>
+
+          <div id="audit-health-summary" class="audit-health-summary" aria-live="polite"></div>
+          <div id="audit-health-actions" class="audit-health-actions" aria-live="polite"></div>
+          <div id="audit-health-checklist" class="audit-health-checklist"></div>
+          <pre id="audit-health-print-report" class="audit-health-print-report" hidden></pre>
+        </div>
+
+        <p class="audit-health-sources">
+          Reference sources:
+          <a href="https://www.ura.go.ug/" target="_blank" rel="noopener noreferrer">Uganda Revenue Authority (official tax information)</a> ·
+          <a href="https://www.eac.int/documents/category/eac-common-external-tariff" target="_blank" rel="noopener noreferrer">EAC Common External Tariff resources</a> ·
+          <a href="tax-law-notes.md">TaxComp calculation assumptions and source notes</a>
+        </p>
+      </section>
+
+      <section class="advisory-section" id="advisory" aria-labelledby="advisory-title">
+        <div class="advisory-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">UGANDA TAX GUIDANCE</p>
+            <h2 id="advisory-title">Find a tax answer.</h2>
+            <p>Search practical, source-linked guidance for the tax topics covered by TaxComp.</p>
+          </div>
+          <span class="advisory-review-date">Reviewed 31 Oct 2026 · FY 2026/27</span>
+        </div>
+
+        <div class="advisory-caveat" role="note">
+          This is educational guidance, not a lawyer, accountant, URA ruling or personalized tax advice.
+          The AI chat uses reviewed TaxComp notes and can make mistakes; it does not automatically track
+          new laws. Check cited sources and effective dates before filing, paying or taking a legal position.
+        </div>
+
+        <form class="advisory-search" id="tax-advisory-search" role="search">
+          <label for="advisory-query">What do you need help with?</label>
+          <div class="advisory-search-row">
+            <input id="advisory-query" type="search" placeholder="Search a tax topic, Act section, or 2026 amendment" autocomplete="off">
+            <select id="advisory-topic" aria-label="Filter guidance by topic">
+              <option value="all">All tax topics</option>
+              <option value="individual">Individual income</option>
+              <option value="employment">PAYE and employment</option>
+              <option value="business">Company and business</option>
+              <option value="rental">Rental income</option>
+              <option value="vat">VAT</option>
+              <option value="withholding">Withholding tax</option>
+              <option value="customs">Imports and exports</option>
+              <option value="international">International tax</option>
+            </select>
+            <button type="submit">Search guidance</button>
+          </div>
+          <div class="advisory-quick-questions" aria-label="Popular tax questions">
+            <span>Popular:</span>
+            <button type="button" data-advisory-query="VAT registration threshold">VAT threshold</button>
+            <button type="button" data-advisory-query="non-resident rent withholding">Non-resident rent</button>
+            <button type="button" data-advisory-query="2026 withholding changes">2026 WHT</button>
+            <button type="button" data-advisory-query="tax treaty negotiation legal policy issues beneficial ownership">Treaty relief</button>
+          </div>
+        </form>
+
+        <p class="advisory-result-count" id="advisory-result-count" aria-live="polite"></p>
+        <div class="advisory-results" id="advisory-results" aria-live="polite"></div>
+        <p class="advisory-no-results" id="advisory-no-results" hidden>
+          No verified guidance matched those words. Try a broader topic, review the official sources, or
+          request a case-specific consultation.
+          <a href="#payments">Consultation and service details</a>
+        </p>
+        <div class="advisory-footer">
+          <p>Need help applying the rules to your records, transaction or URA notice?</p>
+          <a class="advisory-consult-link" href="#payments">Request a tax consultation <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="tax-chat-section" id="tax-chat" aria-labelledby="tax-chat-title">
+        <div class="advisory-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">TAXCOMP CHAT</p>
+            <h2 id="tax-chat-title">Ask a tax question.</h2>
+            <p>Ask in your own words about Uganda taxes, reviewed guidance or case summaries. When a note matches a supported tax head, open its calculator directly from the answer.</p>
+          </div>
+          <button class="tax-chat-clear" id="tax-chat-clear" type="button">Clear chat</button>
+        </div>
+        <p class="tax-chat-privacy" role="note">
+          Do not enter your TIN, passwords, mobile-money PINs, account numbers or confidential documents.
+          The chat does not save history; when AI is connected, your question and recent chat turns are sent
+          to Google Gemini through Cloudflare to generate a reply.
+        </p>
+        <div class="tax-chat-panel">
+          <div class="tax-chat-messages" id="tax-chat-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+          <form class="tax-chat-form" id="tax-chat-form">
+            <label for="tax-chat-input">Your question</label>
+            <textarea id="tax-chat-input" maxlength="1600" rows="3" placeholder="e.g. What evidence should I keep for an input VAT claim?" autocomplete="off"></textarea>
+            <div class="tax-chat-form-footer">
+              <span>Up to 1,600 characters · Enter to send, Shift+Enter for a new line</span>
+              <button id="tax-chat-submit" type="submit">Send question <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+          <div class="tax-chat-shortcuts" aria-label="Example chat questions">
+            <span>Try asking:</span>
+            <button type="button" data-chat-question="What are the VAT registration thresholds?">VAT thresholds</button>
+            <button type="button" data-chat-question="Which employment benefits can affect PAYE?">PAYE benefits</button>
+            <button type="button" data-chat-question="What should I check before claiming a tax treaty rate?">Tax treaties</button>
+            <button type="button" data-chat-question="How is wear-and-tear calculated by asset class?">Wear and tear</button>
+            <button type="button" data-chat-question="What did the Quickway input VAT case decide?">Tax case summary</button>
+          </div>
+        </div>
+        <p class="tax-chat-status" id="tax-chat-status" aria-live="polite"></p>
+      </section>
+
+      <section class="case-law-section" id="tax-cases" aria-labelledby="tax-cases-title">
+        <div class="advisory-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">UGANDA CASE LAW</p>
+            <h2 id="tax-cases-title">Tax cases, in context.</h2>
+            <p>Selected, non-exhaustive case notes with citations and links to the published judgments.</p>
+          </div>
+          <div class="case-law-database-links">
+            <a class="case-law-database-link" href="https://ulii.org/en/judgments/" target="_blank" rel="noopener noreferrer">
+              Browse ULII judgments <span aria-hidden="true">↗</span>
+            </a>
+            <a class="case-law-database-link" href="https://ulii.org/en/judgments/UGTAT/" target="_blank" rel="noopener noreferrer">
+              Tax Appeals Tribunal decisions <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="case-law-caveat" role="note">
+          These are educational case notes, not legal advice. Summaries are based on the cited public case records and may not include the full reasoning, later appeal history or subsequent legal changes. Read the full judgment before relying on a case.
+        </div>
+
+        <form class="case-law-search" id="tax-case-search" role="search">
+          <label for="tax-case-query">Search cases by name, tax topic or issue</label>
+          <div class="case-law-search-row">
+            <input id="tax-case-query" type="search" placeholder="e.g. VAT lease time of supply" autocomplete="off">
+            <button type="submit">Search cases</button>
+          </div>
+        </form>
+
+        <p class="case-law-result-count" id="tax-case-result-count" aria-live="polite"></p>
+        <div class="case-law-results" id="tax-case-results" aria-live="polite"></div>
+        <p class="case-law-no-results" id="tax-case-no-results" hidden>
+          No case note matched that search. Search the
+          <a href="https://ulii.org/en/judgments/" target="_blank" rel="noopener noreferrer">ULII judgments database</a>
+          for other published decisions.
+        </p>
+      </section>
+
+      <section class="law-updates" aria-labelledby="law-updates-title">
+        <div class="law-updates-heading">
+          <p class="eyebrow section-eyebrow">WHAT CHANGED</p>
+          <h2 id="law-updates-title">FY 2026/27 updates</h2>
+          <p>TaxComp reflects selected changes for the 2026/27 year of income. Its advisory and chatbot now index guidance against the 2025–2026 domestic tax-law compilation, covering income tax, VAT, tax procedures, international income, excise, stamp duty and gaming. The compilation warns that it is not a substitute for gazetted Acts. The Income Tax (Amendment) Act, 2026 and Excise Duty (Amendment) Act, 2026 are reported as enacted; proposals and final provisions can differ. This is a summary, not a complete amendment register.</p>
+        </div>
+        <div class="law-update-list">
+          <article><span>01</span><div><h3>VAT registration thresholds increased</h3><p>UGX 300 million in annual taxable supplies or more than UGX 75 million in a three-month period.</p></div></article>
+          <article><span>02</span><div><h3>VAT withholding narrowed</h3><p>VAT withholding applies to relevant taxable-supply payments where the supplier has not issued an EFRIS e-invoice or e-receipt. Input-credit recovery is also affected by e-invoice evidence and exempt supplies.</p></div></article>
+          <article><span>03</span><div><h3>Withholding expands to specified payments</h3><p>Includes 6% on gross payments to public entertainers, 15% on betting winnings (payout less stake), 10% on specified telecom/mobile-money commissions and 5% on qualifying offshore debenture interest. Scope, payer, exclusions and effective dates depend on the Act.</p></div></article>
+          <article><span>04</span><div><h3>Individuals may elect monthly provisional rental returns</h3><p>The enacted-law commentary describes monthly provisional returns as an option, not a general mandatory monthly filing requirement. TaxComp's rental calculator remains an annual estimate; confirm the applicable filing route with URA.</p></div></article>
+          <article><span>05</span><div><h3>Related-party arm’s-length rule stated expressly</h3><p>The 2026 Income Tax amendment adds an express arm’s-length obligation for controlled transactions. Review transaction substance, pricing support and current documentation requirements.</p></div></article>
+          <article><span>06</span><div><h3>Excise rates changed for specified goods</h3><p>The 2026 Excise Duty amendment changes some product-specific rates, including fuel, cement, sugar, cooking oil and plastics. TaxComp does not assume a rate: verify the exact goods, tariff and current statutory schedule.</p></div></article>
+          <p class="law-update-sources">Sources: <a href="https://ura.go.ug/" target="_blank" rel="noopener noreferrer">URA (official tax information)</a> · <a href="https://mrt.tax/2026/08/24/ugandas-2026-income-tax-and-excise-duty-amendments-now-law-key-changes-and-what-they-mean-for-taxpayers/" target="_blank" rel="noopener noreferrer">MRT Tax, August 2026 enacted-law commentary (secondary source)</a>. Confirm the enacted Acts and commencement provisions before applying a rule.</p>
+        </div>
+      </section>
+
+      <section class="other-heads" aria-labelledby="other-heads-title">
+        <div>
+          <p class="eyebrow section-eyebrow">ALSO PLAN FOR</p>
+          <h2 id="other-heads-title">Not every tax has one simple rate.</h2>
+          <p>These obligations depend on the exact item, transaction, municipality or official schedule, so this site does not guess a liability.</p>
+        </div>
+        <ul>
+          <li><strong>Excise duty</strong><span>Goods and services use product-specific rates, sometimes per unit.</span></li>
+          <li><strong>Customs tariff rates</strong><span>Import/export estimates use rates you confirm from the HS classification, origin and current EAC schedule. The site does not look up or classify goods.</span></li>
+          <li><strong>Stamp duty</strong><span>Duty varies by instrument, transaction and any exemption.</span></li>
+          <li><strong>Local Service Tax</strong><span>Employment-related amounts depend on the local authority's schedule.</span></li>
+          <li><strong>NSSF</strong><span>PAYE results show employee and employer contributions separately; NSSF is not income tax.</span></li>
+        </ul>
+      </section>
+
+      <section class="payment-section" id="payments" aria-labelledby="payments-title">
+        <div class="payment-heading">
+          <p class="eyebrow section-eyebrow">MANUAL MOBILE-MONEY PAYMENT</p>
+          <h2 id="payments-title">Pay for a service.</h2>
+          <p>Send payment to one of the numbers below, then keep your transaction ID. Services are arranged and confirmed manually; this site does not verify payments or unlock paid services automatically.</p>
+        </div>
+        <div class="payment-options">
+          <article class="payment-card">
+            <span class="payment-provider">MTN MoMo</span>
+            <a class="payment-number" href="tel:+256782092825">+256 782 092 825</a>
+          </article>
+          <article class="payment-card">
+            <span class="payment-provider">Airtel Money</span>
+            <a class="payment-number" href="tel:+256753267505">+256 753 267 505</a>
+          </article>
+        </div>
+        <div class="business-contact" id="contact" aria-label="Business contact details">
+          <div>
+            <span class="payment-provider">Email</span>
+            <a href="mailto:opitekenecons@gmail.com">opitekenecons@gmail.com</a>
+          </div>
+          <div>
+            <span class="payment-provider">Phone</span>
+            <a href="tel:+256782092825">0782092825</a>
+          </div>
+          <div>
+            <span class="payment-provider">Location</span>
+            <span>Kampala, Uganda</span>
+          </div>
+        </div>
+        <ul class="service-prices" aria-label="Service prices">
+          <li><strong>Tax estimate report</strong><span>UGX 200,000 per report</span></li>
+          <li><strong>Consultation</strong><span>UGX 200,000 for 30 minutes</span></li>
+          <li><strong>Monthly report plan</strong><span>UGX 500,000 per month · unlimited reports</span></li>
+        </ul>
+        <p class="payment-note">After paying, retain the transaction reference and contact the business through your agreed contact channel with the service you’re requesting. Never share your mobile-money PIN or one-time code. Monthly plans require manual renewal; no recurring charge is set up.</p>
+      </section>
+
+      <section class="info-section" id="how-it-works" aria-labelledby="how-title">
+        <div class="info-intro">
+          <p class="eyebrow section-eyebrow">SIMPLE BY DESIGN</p>
+          <h2 id="how-title">Useful tax estimates.<br>Clear assumptions.</h2>
+        </div>
+        <div class="info-steps">
+          <article class="info-step">
+            <span class="info-step-number">1</span>
+            <h3>Choose a tax head</h3>
+            <p>Select the calculation for individual income, PAYE, company income, VAT, rental, withholding or presumptive tax.</p>
+          </article>
+          <article class="info-step">
+            <span class="info-step-number">2</span>
+            <h3>Enter the right figures</h3>
+            <p>Each tax head requests the specific income, turnover, sale or payment amounts it needs.</p>
+          </article>
+          <article class="info-step">
+            <span class="info-step-number">3</span>
+            <h3>Review the breakdown</h3>
+            <p>Understand the rates, credits and assumptions that contribute to your estimate.</p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#" aria-label="TaxComp Uganda home">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span>taxcomp<span class="brand-country">.ug</span></span>
+      </a>
+      <span>Developed by Opitekene Consultancy Limited.</span>
+      <span>Uganda · FY 2026/27</span>
+    </footer>
+  </body>
+</html>
