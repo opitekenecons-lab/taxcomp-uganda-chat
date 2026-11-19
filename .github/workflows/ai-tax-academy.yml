@@ -1,0 +1,25 @@
+name: AI Tax Academy tests
+on:
+  pull_request:
+    paths:
+      - 'academy/**'
+      - '.github/workflows/ai-tax-academy.yml'
+  push:
+    branches:
+      - 'feature/ai-tax-professional-academy-20261119'
+    paths:
+      - 'academy/**'
+      - '.github/workflows/ai-tax-academy.yml'
+permissions:
+  contents: read
+jobs:
+  academy-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run unit tests
+        run: python -m unittest discover -s academy/tests -v
