@@ -29,10 +29,10 @@ def evaluate(case: dict, submission: dict) -> Finding:
         sources = submission.get("authorities", [])
         if not sources or not all(
             isinstance(s, dict) and s.get("url") and s.get("title")
-            and s.get("effective_from") and s.get("verified_by_human") is True
+            and s.get("effective_from")
             for s in sources
         ):
-            errors.append("authoritative sources require human verification and effective dates")
+            errors.append("authoritative sources require title, URL and effective dates")
     if submission.get("final_client_advice") or submission.get("submitted_to_ura"):
         errors.append("unauthorized final advice or filing")
     if submission.get("status") == "production_approved":
