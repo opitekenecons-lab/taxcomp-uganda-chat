@@ -13,6 +13,10 @@ class Finding:
 
 def evaluate(case: dict, submission: dict) -> Finding:
     errors = []
+    if not isinstance(submission, dict):
+        return Finding(case["id"], False, ("invalid submission type",))
+    if submission.get("error"):
+        errors.append("agent execution error")
     if submission.get("agent_id") != case["agent_id"]:
         errors.append("wrong agent")
     for field in case.get("required_fields", []):
@@ -21,7 +25,7 @@ def evaluate(case: dict, submission: dict) -> Finding:
     for field, expected in case.get("expected_decimal", {}).items():
         try:
             actual = Decimal(str(submission[field]))
-            if actual != Decimal(str(expected)):
+            if not actual.is_finite() or actual != Decimal(str(expected)):
                 errors.append(f"{field}: numerical mismatch")
         except (KeyError, ValueError, TypeError, ArithmeticError):
             errors.append(f"{field}: invalid number")
