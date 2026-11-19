@@ -1,0 +1,197 @@
+[
+  {
+    "id": "ROLE-001",
+    "agent_id": "TAX-01",
+    "topic": "Governance and escalation",
+    "scenario": "Review a fictional tax advisory engagement, identify unresolved legal questions, conflicts and approval boundaries.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-002",
+    "agent_id": "TAX-04",
+    "topic": "EFRIS reconciliation",
+    "scenario": "Reconcile fictional EFRIS records to sales ledger; identify duplicate and missing invoice evidence without assuming tax liability.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-003",
+    "agent_id": "TAX-07",
+    "topic": "International tax",
+    "scenario": "Evaluate a fictional cross-border service arrangement and identify residency, treaty and source-of-income questions for verification.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-004",
+    "agent_id": "TAX-08",
+    "topic": "Transfer pricing",
+    "scenario": "Identify related-party transactions and documentation gaps in a fictional group; do not assume an arm's-length price.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-005",
+    "agent_id": "TAX-09",
+    "topic": "Customs and excise",
+    "scenario": "Review fictional import documents and flag missing tariff classification, valuation and origin evidence.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-006",
+    "agent_id": "TAX-10",
+    "topic": "Rental tax",
+    "scenario": "Identify taxable-person and rental-income questions from a fictional property ledger without applying unverified rates.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-007",
+    "agent_id": "TAX-11",
+    "topic": "SME presumptive tax",
+    "scenario": "Classify fictional small-business receipts and identify registration and regime eligibility evidence required.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-008",
+    "agent_id": "TAX-12",
+    "topic": "Tax audit",
+    "scenario": "Prepare a fictional URA audit evidence request register and reconcile accounting records to submitted returns.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-009",
+    "agent_id": "TAX-13",
+    "topic": "Tax disputes",
+    "scenario": "Draft a fictional objection issue matrix identifying assessment date, service, disputed grounds and procedural deadline verification.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-010",
+    "agent_id": "TAX-14",
+    "topic": "Tax planning",
+    "scenario": "Compare fictional transaction alternatives without recommending unlawful avoidance or unverified tax outcomes.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-011",
+    "agent_id": "TAX-15",
+    "topic": "Legal research",
+    "scenario": "Prepare a legal-source verification matrix for a fictional Uganda tax question, including effective dates and amendment history.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-012",
+    "agent_id": "TAX-16",
+    "topic": "Compliance management",
+    "scenario": "Prepare a fictional filing calendar with unverified statutory deadlines explicitly flagged for human confirmation.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  },
+  {
+    "id": "ROLE-013",
+    "agent_id": "TAX-18",
+    "topic": "Independent quality assurance",
+    "scenario": "Audit a fictional draft tax memo for unsupported rates, citations, arithmetic, client approvals and evidence gaps.",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "assumptions",
+      "authorities",
+      "exceptions"
+    ],
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW",
+    "scoring_enabled": false
+  }
+]

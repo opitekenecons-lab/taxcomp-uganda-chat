@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ACCT-001",
+    "agent_id": "TAX-02",
+    "required_fields": [
+      "reconciled_profit",
+      "working_paper"
+    ],
+    "expected_decimal": {
+      "reconciled_profit": "12500000"
+    },
+    "requires_authority": false,
+    "scenario": "Fictional accounting-only exercise: book profit UGX 10,000,000; add back an incorrectly expensed capital asset UGX 3,000,000; deduct duplicated revenue UGX 500,000. Calculate adjusted book profit. This is NOT taxable income; do not assume any tax law."
+  },
+  {
+    "id": "VAT-001",
+    "agent_id": "TAX-03",
+    "required_fields": [
+      "invoice_difference",
+      "exception_register"
+    ],
+    "expected_decimal": {
+      "invoice_difference": "200000"
+    },
+    "requires_authority": false,
+    "scenario": "Fictional invoice reconciliation only: ledger total UGX 4,200,000; source invoice total UGX 4,000,000. Find difference. No VAT rate or tax conclusion."
+  },
+  {
+    "id": "PAYE-001",
+    "agent_id": "TAX-05",
+    "required_fields": [
+      "gross_payroll",
+      "reconciliation"
+    ],
+    "expected_decimal": {
+      "gross_payroll": "3500000"
+    },
+    "requires_authority": false,
+    "scenario": "Fictional gross payroll arithmetic: UGX 1,500,000 + UGX 2,000,000. No PAYE rates."
+  },
+  {
+    "id": "RESEARCH-001",
+    "agent_id": "TAX-15",
+    "required_fields": [
+      "issue",
+      "authorities",
+      "tax_period"
+    ],
+    "requires_authority": true,
+    "scenario": "Research an actual Ugandan tax provision relevant to a stated tax period. Must attach verified primary source, commencement date, and human verification; never fabricate."
+  }
+]
