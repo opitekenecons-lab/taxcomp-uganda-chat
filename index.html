@@ -17,10 +17,10 @@
     <link rel="manifest" href="./manifest.webmanifest">
     <link rel="icon" type="image/png" sizes="192x192" href="./icons/taxcomp-192.png">
     <link rel="apple-touch-icon" href="./icons/taxcomp-180.png">
-    <link rel="stylesheet" href="styles.css?v=tax-chat-calculator-links-1">
+    <link rel="stylesheet" href="styles.css?v=guided-calculator-1">
     <script src="tax-advisory.js?v=20261101-shared-tax-knowledge-1" defer></script>
     <script src="tax-calculator.js?v=20261101-shared-tax-knowledge-1" defer></script>
-    <script src="app.js?v=direct-worked-example-links-1" defer></script>
+    <script src="app.js?v=guided-calculator-1" defer></script>
     <script src="tax-chat.js?v=tax-chat-calculator-links-1" defer></script>
     <script src="international-tax.js?v=international-tax-1" defer></script>
     <script src="audit-health.js?v=audit-health-1" defer></script>
@@ -90,6 +90,22 @@
           </div>
           <span class="year-badge">Uganda · FY 2026/27</span>
         </div>
+
+        <details class="calculator-guide" id="calculator-guide">
+          <summary>Help me choose a calculator</summary>
+          <p>What would you like to estimate? Choose what you are working on. A calculator estimate does not determine whether you need to register or file.</p>
+          <ul>
+            <li><a href="#tab-individual" data-calculator-head="individual">Tax on my personal income</a></li>
+            <li><a href="#tab-paye" data-calculator-head="paye">Tax deducted from a salary (PAYE)</a></li>
+            <li><a href="#tab-company" data-calculator-head="company">Tax on my company's profit</a></li>
+            <li><a href="#tab-vat" data-calculator-head="vat">VAT on sales and purchases</a></li>
+            <li><a href="#tab-rental" data-calculator-head="rental">Tax on rent I receive</a></li>
+            <li><a href="#tab-withholding" data-calculator-head="withholding">Tax withheld from a payment</a></li>
+            <li><a href="#tab-presumptive" data-calculator-head="presumptive">Small-business tax based on sales (presumptive tax)</a></li>
+            <li><a href="#tab-customs" data-calculator-head="customs">Taxes and duties on goods crossing the border</a></li>
+            <li><a href="#tab-capital-allowances" data-calculator-head="capital-allowances">Tax deduction for business assets (wear and tear)</a></li>
+          </ul>
+        </details>
 
         <div class="tax-tabs" role="tablist" aria-label="Choose a tax head">
           <button class="tax-tab is-active" id="tab-individual" type="button" role="tab" aria-selected="true" aria-controls="tax-form" data-tax-head="individual">Individual income</button>
