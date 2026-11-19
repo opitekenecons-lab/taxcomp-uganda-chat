@@ -21,5 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Run unit tests
+      - name: Run Python unit tests
         run: python -m unittest discover -s academy/tests -v
+      - name: Run Node knowledge integration tests
+        run: node --test academy/tests/knowledge_bridge.test.mjs
