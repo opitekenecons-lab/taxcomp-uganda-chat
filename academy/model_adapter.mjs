@@ -30,7 +30,7 @@ export async function assessWithModel({ scenario, requested_agent_id, model, mod
         answer.production_approved || answer.status === "production_approved") {
       return { ...routed, status: "model_output_rejected", error: "prohibited model action or approval claim" };
     }
-    if (typeof answer.draft !== "string" || answer.draft.length > 6000) {
+    if (typeof answer.draft !== "string" || !answer.draft.trim() || answer.draft.length > 6000) {
       return { ...routed, status: "model_output_rejected", error: "invalid draft" };
     }
     return {
