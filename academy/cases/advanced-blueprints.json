@@ -1,0 +1,68 @@
+[
+  {
+    "id": "CIT-ADV-001",
+    "agent_id": "TAX-02",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "reconciliation",
+      "authorities",
+      "assumptions",
+      "exceptions"
+    ],
+    "scenario": "Using a fictional company trial balance, prepare a Uganda CIT computation; identify adjustments and capital allowance treatment. Do not calculate until tax-period-specific primary sources and independent reference answers are provided.",
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW"
+  },
+  {
+    "id": "VAT-ADV-001",
+    "agent_id": "TAX-03",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "vat_schedule",
+      "authorities",
+      "exceptions"
+    ],
+    "scenario": "Classify mixed taxable, exempt and zero-rated supplies with EFRIS evidence; reconcile to returns. Rates and classifications must be verified for period.",
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW"
+  },
+  {
+    "id": "PAYE-ADV-001",
+    "agent_id": "TAX-05",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "payroll_reconciliation",
+      "authorities",
+      "exceptions"
+    ],
+    "scenario": "Compute PAYE on hypothetical employees with allowances and benefits after verified tax tables are attached.",
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW"
+  },
+  {
+    "id": "WHT-ADV-001",
+    "agent_id": "TAX-06",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "withholding_schedule",
+      "authorities",
+      "exceptions"
+    ],
+    "scenario": "Determine withholding obligations and credits on hypothetical domestic and cross-border transactions, citing effective provisions.",
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW"
+  },
+  {
+    "id": "IAS12-ADV-001",
+    "agent_id": "TAX-17",
+    "requires_authority": true,
+    "required_fields": [
+      "tax_period",
+      "temporary_difference_schedule",
+      "authorities",
+      "assumptions"
+    ],
+    "scenario": "Prepare current and deferred tax workings from a fictional set of temporary differences; verify applicable IAS 12 guidance and tax assumptions.",
+    "reference_answer_status": "REQUIRES_QUALIFIED_REVIEW"
+  }
+]
