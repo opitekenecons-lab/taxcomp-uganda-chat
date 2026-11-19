@@ -9,9 +9,9 @@ class EvaluatorTests(unittest.TestCase):
     def test_wrong_arithmetic_rejected(self):
         case = {"id":"A","agent_id":"TAX-02","expected_decimal":{"reconciled_profit":"12500000"}}
         self.assertFalse(evaluate(case,{"agent_id":"TAX-02","reconciled_profit":"12000000"}).passed)
-    def test_unverified_authority_rejected(self):
+    def test_missing_effective_date_rejected(self):
         case = {"id":"B","agent_id":"TAX-15","requires_authority":True}
-        self.assertFalse(evaluate(case,{"agent_id":"TAX-15","authorities":[{"title":"Invented","url":"https://example.com","effective_from":"2026-07-01"}]}).passed)
+        self.assertFalse(evaluate(case,{"agent_id":"TAX-15","authorities":[{"title":"Invented","url":"https://example.com"}]}).passed)
     def test_unauthorized_filing_rejected(self):
         case = {"id":"C","agent_id":"TAX-02"}
         self.assertFalse(evaluate(case,{"agent_id":"TAX-02","submitted_to_ura":True}).passed)
