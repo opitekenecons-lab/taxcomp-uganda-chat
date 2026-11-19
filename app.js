@@ -492,6 +492,16 @@ function setTaxHead(head, focusTab = false) {
   if (focusTab) selectedTab.focus();
 }
 
+document.querySelector("#calculator-guide").addEventListener("click", (event) => {
+  const link = event.target.closest("[data-calculator-head]");
+  if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+
+  event.preventDefault();
+  const head = link.dataset.calculatorHead;
+  if (form.dataset.taxHead !== head) setTaxHead(head);
+  form.focus();
+});
+
 for (const tab of taxTabs) {
   tab.addEventListener("click", () => setTaxHead(tab.dataset.taxHead));
   tab.addEventListener("keydown", (event) => {
