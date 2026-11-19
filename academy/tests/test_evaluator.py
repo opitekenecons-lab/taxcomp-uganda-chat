@@ -12,6 +12,15 @@ class EvaluatorTests(unittest.TestCase):
     def test_missing_effective_date_rejected(self):
         case = {"id":"B","agent_id":"TAX-15","requires_authority":True}
         self.assertFalse(evaluate(case,{"agent_id":"TAX-15","authorities":[{"title":"Invented","url":"https://example.com"}]}).passed)
+    def test_execution_error_rejected(self):
+        case = {"id":"E","agent_id":"TAX-02"}
+        self.assertFalse(evaluate(case,{"agent_id":"TAX-02","error":"timeout"}).passed)
+    def test_nonfinite_number_rejected(self):
+        case = {"id":"F","agent_id":"TAX-02","expected_decimal":{"amount":"100"}}
+        self.assertFalse(evaluate(case,{"agent_id":"TAX-02","amount":"NaN"}).passed)
+    def test_nonobject_submission_rejected(self):
+        case = {"id":"G","agent_id":"TAX-02"}
+        self.assertFalse(evaluate(case,[]).passed)
     def test_unauthorized_filing_rejected(self):
         case = {"id":"C","agent_id":"TAX-02"}
         self.assertFalse(evaluate(case,{"agent_id":"TAX-02","submitted_to_ura":True}).passed)
