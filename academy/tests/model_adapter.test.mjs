@@ -34,3 +34,8 @@ test("model errors do not expose secrets", async () => {
   assert.equal(result.status, "model_failed");
   assert.ok(!JSON.stringify(result).includes("SECRET-DO-NOT-LEAK"));
 });
+
+test("blank draft rejected", async () => {
+  const result = await assessWithModel({ scenario: "VAT", model: async () => ({ draft: "  " }) });
+  assert.equal(result.status, "model_output_rejected");
+});
