@@ -5,6 +5,13 @@ compatibility_date = "2026-10-31"
 [vars]
 ALLOWED_ORIGIN = "https://opitekeneconsultancylimited.github.io"
 GEMINI_MODEL = "gemini-2.5-flash"
+# Free-first fallback chain (worker/ai-chain.mjs). A provider is used only if its key is set
+# as a secret: GEMINI_API_KEY, GROQ_API_KEY, OPENROUTER_API_KEY, ANTHROPIC_API_KEY.
+# To make Claude answer first instead, change this to "claude,gemini,groq,openrouter".
+AI_ORDER = "gemini,groq,openrouter,claude"
+GROQ_MODEL = "openai/gpt-oss-120b"
+OPENROUTER_MODEL = "openrouter/free"
+CLAUDE_MODEL = "claude-sonnet-5-5"
 
 [[unsafe.bindings]]
 name = "CHAT_LIMITER"

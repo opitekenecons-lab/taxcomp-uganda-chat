@@ -74,3 +74,30 @@ From the `tax-estimator` directory:
 ```powershell
 node --test .\tax-calculator.test.js .\tax-advisory.test.js .\tax-chat.test.js .\worker\index.test.mjs
 ```
+
+
+## Free-first fallback chain
+
+The Worker no longer depends on one AI provider. `worker/ai-chain.mjs` tries the
+providers in `AI_ORDER` (in `wrangler.toml`) and uses the first good answer:
+
+1. **Gemini** (`GEMINI_API_KEY`, already set)
+2. **Groq** (`GROQ_API_KEY`), free tier, model `openai/gpt-oss-120b`
+3. **OpenRouter** (`OPENROUTER_API_KEY`), free models router `openrouter/free`
+4. **Claude** (`ANTHROPIC_API_KEY`), paid, used only when the free ones fail
+
+A provider with no key is skipped. Add keys in PowerShell from this folder, pasting
+each one only into the Wrangler prompt:
+
+```powershell
+npx wrangler secret put GROQ_API_KEY
+npx wrangler secret put OPENROUTER_API_KEY
+npx wrangler secret put ANTHROPIC_API_KEY   # optional paid safety net
+npx wrangler deploy
+```
+
+Every provider gets the same system instruction and reviewed evidence notes, and
+citations are still checked against the approved sources. Free-tier providers may
+log prompts or use them to improve their models, which is why the assistant tells
+users not to share TINs or confidential details. To put Claude first, set
+`AI_ORDER = "claude,gemini,groq,openrouter"` and redeploy.

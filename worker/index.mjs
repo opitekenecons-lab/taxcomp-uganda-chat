@@ -1,4 +1,5 @@
 import { retrieveKnowledge, sources as knowledgeSources } from "./knowledge.mjs";
+import { answerWithChain } from "./ai-chain.mjs";
 
 const MAX_BODY_BYTES = 12_000;
 const MAX_QUESTION_LENGTH = 1_600;
@@ -83,13 +84,11 @@ function getConversationHistory(value) {
     .filter((item) => item && ["user", "model"].includes(item.role))
     .map((item) => ({
       role: item.role,
-      parts: [{
-        text: typeof item.text === "string"
-          ? item.text.trim().slice(0, MAX_HISTORY_LENGTH)
-          : "",
-      }],
+      text: typeof item.text === "string"
+        ? item.text.trim().slice(0, MAX_HISTORY_LENGTH)
+        : "",
     }))
-    .filter((item) => item.parts[0].text.length > 0);
+    .filter((item) => item.text.length > 0);
 }
 
 function buildEvidence(knowledge) {
@@ -137,75 +136,21 @@ function validateCitations(answer, sources) {
   });
 }
 
-async function callGemini(question, history, evidence, env) {
-  if (!env.GEMINI_API_KEY) {
-    return { error: "The AI assistant is not configured yet.", status: 503 };
+async function callAi(question, history, evidence, env) {
+  const result = await answerWithChain({
+    system: `${SYSTEM_INSTRUCTION}\n\n${evidence.text}`,
+    question,
+    history,
+    env,
+  });
+  if ("error" in result) return result;
+  if (result.answer.length > MAX_ANSWER_LENGTH) {
+    return { error: "The AI service returned no usable answer.", status: 502 };
   }
-
-  const model = env.GEMINI_MODEL || "gemini-2.5-flash";
-  if (!/^[a-zA-Z0-9._-]{1,80}$/.test(model)) {
-    return { error: "The AI service configuration is invalid.", status: 503 };
-  }
-
-  const contents = [
-    ...history,
-    { role: "user", parts: [{ text: question }] },
-  ];
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`;
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 20_000);
-
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-goog-api-key": env.GEMINI_API_KEY,
-      },
-      body: JSON.stringify({
-        systemInstruction: {
-          parts: [{ text: `${SYSTEM_INSTRUCTION}\n\n${evidence.text}` }],
-        },
-        contents,
-        generationConfig: {
-          temperature: 0.2,
-          maxOutputTokens: 650,
-        },
-      }),
-      signal: controller.signal,
-    });
-
-    if (!response.ok) {
-      return {
-        error: response.status === 429
-          ? "The AI service is busy. Please try again shortly."
-          : "The AI service could not answer right now. Please try again later.",
-        status: response.status === 429 ? 429 : 502,
-      };
-    }
-
-    const data = await response.json();
-    const generatedAnswer = data.candidates?.[0]?.content?.parts
-      ?.map((part) => typeof part.text === "string" ? part.text : "")
-      .join("")
-      .trim();
-
-    if (!generatedAnswer || generatedAnswer.length > MAX_ANSWER_LENGTH) {
-      return { error: "The AI service returned no usable answer.", status: 502 };
-    }
-
-    return {
-      answer: validateCitations(generatedAnswer, evidence.sources),
-      sources: evidence.sources,
-    };
-  } catch {
-    return {
-      error: "The AI service could not be reached. Please try again later.",
-      status: 502,
-    };
-  } finally {
-    clearTimeout(timeout);
-  }
+  return {
+    answer: validateCitations(result.answer, evidence.sources),
+    sources: evidence.sources,
+  };
 }
 
 export async function handleRequest(request, env) {
@@ -276,7 +221,7 @@ export async function handleRequest(request, env) {
   }
 
   const evidence = buildEvidence(knowledge);
-  const result = await callGemini(
+  const result = await callAi(
     question,
     getConversationHistory(body.history),
     evidence,
